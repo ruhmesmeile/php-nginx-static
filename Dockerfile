@@ -11,5 +11,5 @@ COPY config/php/application.conf /usr/local/etc/php-fpm.d/application.conf
 RUN rm -f /opt/docker/etc/nginx/vhost.common.d/05-security.conf
 COPY config/nginx/vhost.common.d/05-security.conf /opt/docker/etc/nginx/vhost.common.d/05-security.conf
 
-# Add node API capabilities
-RUN docker-service-enable node
+# If this images uses a local API, expose it on port 3003
+EXPOSE 3003
