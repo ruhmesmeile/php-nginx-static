@@ -9,6 +9,8 @@ COPY config/php/application.conf /usr/local/etc/php-fpm.d/application.conf
 
 # Configure Node API
 COPY config/node/node.sh /opt/docker/bin/service.d/node.sh
+COPY config/node/node.conf /opt/docker/etc/supervisor.d/node.conf
+RUN chmod a+x /opt/docker/bin/service.d/node.sh
 
 # Configure Nginx (remove changelog.* from deny all)
 RUN rm -f /opt/docker/etc/nginx/vhost.common.d/05-security.conf
